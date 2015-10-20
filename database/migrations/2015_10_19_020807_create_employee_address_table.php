@@ -12,11 +12,13 @@ class CreateEmployeeAddressTable extends Migration {
          */
         public function up() {
                 Schema::create('employee_address', function (Blueprint $table) {
-                        $table->unsignedInteger('address_id')->references('address_id')->on('address');
-                        $table->unsignedInteger('employee_id')->references('employee_id')->on('employee');
+                        $table->unsignedInteger('address_id');
+                        $table->unsignedInteger('employee_id');
                         $table->enum('type', ['home', 'work']);
 
                         $table->primary(['address_id', 'employee_id']);
+                        $table->foreign('address_id')->references('address_id')->on('address');
+                        $table->foreign('employee_id')->references('employee_id')->on('employee');
                 });
         }
 
