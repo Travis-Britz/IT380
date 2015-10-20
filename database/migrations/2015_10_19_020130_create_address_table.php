@@ -17,7 +17,7 @@ class CreateAddressTable extends Migration {
                         $table->string('city', 255);
                         $table->string('state', 20);
                         $table->string('state_code', 2);
-                        $table->string('zipcode', 5);
+                        $table->char('zipcode', 5);
                 });
         }
 

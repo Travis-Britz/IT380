@@ -17,6 +17,7 @@ class CreateMeetingTable extends Migration {
                         $table->dateTime('end')->index()->nullable();
                         $table->unsignedInteger('duration_estimate')->nullable(); //minutes
                         $table->unsignedInteger('location_id');
+                        $table->timestamps();
 
                         $table->foreign('location_id')->references('location_id')->on('location');
                 });
