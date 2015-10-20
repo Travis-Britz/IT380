@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmpoyeePhoneTable extends Migration {
+class CreateEmployeeContentTable extends Migration {
 
         /**
          * Run the migrations.
@@ -11,12 +11,14 @@ class CreateEmpoyeePhoneTable extends Migration {
          * @return void
          */
         public function up() {
-                Schema::create('employee_phone', function (Blueprint $table) {
+                Schema::create('employee_content', function (Blueprint $table) {
+                        $table->unsignedInteger('content_id');
                         $table->unsignedInteger('employee_id');
-                        $table->string('phone_number', 25); //some international numbers are weird.    
-                        $table->enum('phone_type', ['mobile', 'landline']);
-                        $table->enum('phone_category', ['personal', 'work', 'business', 'fax']);
-                        $table->primary(['employee_id', 'phone_number']);
+                        $table->timestamp('due_date');
+                        $table->timestamp('completion_date')->nullable();
+
+                        $table->primary(['content_id', 'employee_id']);
+                        $table->foreign('content_id')->references('content_id')->on('content');
                         $table->foreign('employee_id')->references('employee_id')->on('employee');
                 });
         }
@@ -27,7 +29,7 @@ class CreateEmpoyeePhoneTable extends Migration {
          * @return void
          */
         public function down() {
-                Schema::drop('employee_phone');
+                Schema::drop('employee_content');
         }
 
 }

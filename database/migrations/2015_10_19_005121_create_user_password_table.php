@@ -12,11 +12,12 @@ class CreateUserPasswordTable extends Migration {
          */
         public function up() {
                 Schema::create('user_password', function (Blueprint $table) {
-                        $table->unsignedInteger('user_id')->index()->references('id')->on('users');
+                        $table->unsignedInteger('user_id');
                         $table->string('password', 255);
                         $table->timestamp('created_at');
                         
-                        $table->primary(['user_id', 'password_hash']);
+                        $table->primary(['user_id', 'password']);
+                        $table->foreign('user_id')->references('id')->on('users');
                 });
         }
 
