@@ -11,6 +11,8 @@
   |
  */
 
-Route::get('/', 'PagesController@home');
+Route::get('/', function() {
+        return redirect('dashboard');
+});
 
 Route::get('dashboard', 'PagesController@dashboard');
