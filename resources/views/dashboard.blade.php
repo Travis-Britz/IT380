@@ -37,7 +37,7 @@
   <ul class="list-group">
     <li class="list-group-item">Toxic Materials Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">3d 13h</span></li>
     <li class="list-group-item">Heavy Lifting Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">5d 12h</span></li>
-    <li class="list-group-item">Lorem ipsum dolor sit <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">1w 2d</span></li>
+    <li class="list-group-item">Saftey Update <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">1w 2d</span></li>
     <li class="list-group-item">Sed tristique ante in nulla laoreet <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">1w 4d</span></li>
     <li class="list-group-item">Vestibulum at eros <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">2w 0h</span></li>
   </ul>
