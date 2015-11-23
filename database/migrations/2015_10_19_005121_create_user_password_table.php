@@ -14,7 +14,7 @@ class CreateUserPasswordTable extends Migration {
                 Schema::create('user_password', function (Blueprint $table) {
                         $table->unsignedInteger('user_id');
                         $table->string('password', 255);
-                        $table->timestamp('created_at');
+                        $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
                         
                         $table->primary(['user_id', 'password']);
                         $table->foreign('user_id')->references('id')->on('users');
