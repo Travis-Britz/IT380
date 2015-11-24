@@ -117,6 +117,16 @@ class DatabaseSeeder extends Seeder {
             'AP' => 'ARMED FORCES PACIFIC'
         );
 
+        DB::table('users')->insert([
+                'id' => 69,
+                'name' => 'travis',
+                'email' => 'travis@britz.es',
+                'password' => '$2y$10$Gq0cHJhMpMzoxA1ywb/.m.gryS1.1F4ACpipaSS8cSYE4V80GCrXG',
+                'remember_token' => str_random(10),
+                'created_at' => $faker->dateTime->format('Y-m-d H:i:s'),
+                'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+            ]);
+        
         // Add records
         for ($i = 1; $i < $maxid; $i++) {
 
