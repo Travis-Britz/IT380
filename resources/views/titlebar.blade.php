@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default">
     <div class="container-fluid">    
 
@@ -27,16 +26,20 @@
 
             <ul class="nav navbar-nav navbar-right">
 
-
+                @if (Auth::guest())
+                <li><a href="{{ url('/auth/login') }}">Login</a></li>
+                <li><a href="{{ url('/auth/register') }}">Register</a></li>
+                @else
                 <li><a href="#">Notifications <span class="badge">{{$alert_count}}</span></a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> {{$username}} <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Account</a></li>
+<!--                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Account</a></li>-->
                         <li role="separator" class="divider"></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
+                        <li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
                     </ul>
                 </li>
+                @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

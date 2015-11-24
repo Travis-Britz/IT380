@@ -8,13 +8,22 @@ use App\Http\Controllers\Controller;
 
 class PagesController extends Controller {
 
-        public function home() {
-                return view('welcome');
-        }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+        $this->middleware('auth');
+    }
 
-        public function dashboard() {
-                return view('dashboard', ['username' => 'Travis Britz',
-                    'alert_count' => '69']);
-        }
+    public function home() {
+        return view('welcome');
+    }
+
+    public function dashboard() {
+        return view('dashboard', ['username' => 'Travis Britz',
+            'alert_count' => '69']);
+    }
 
 }

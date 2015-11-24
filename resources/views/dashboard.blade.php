@@ -4,8 +4,6 @@
 <title>Dashboard</title>
 @stop
 
-
-
 @section('content')
 
 
