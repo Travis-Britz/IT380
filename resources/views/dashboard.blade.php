@@ -1,17 +1,8 @@
 @extends('app')
 
-@section('title')
-<title>Dashboard</title>
-@stop
+@section('title','Dashboard')
 
 @section('content')
-
-
-
-
-
-
-
 
 
 <div class="panel panel-default">
