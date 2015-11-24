@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder {
         DB::statement('TRUNCATE `meeting_category`');
         DB::statement('TRUNCATE `meeting_content`');
         DB::statement('TRUNCATE `meeting_objective`');
-        DB::statement('TRUNCATE `migrations`');
         DB::statement('TRUNCATE `objective`');
         DB::statement('TRUNCATE `password_resets`');
         DB::statement('TRUNCATE `report`');
