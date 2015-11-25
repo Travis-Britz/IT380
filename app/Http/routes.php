@@ -19,6 +19,10 @@ Route::get('home', function() {
 });
 Route::get('dashboard', 'PagesController@dashboard');
 
+Route::get('profile', function() {
+    return view('employees.show');
+});
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -36,7 +40,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 Route::get('/faker', function() {
-    
+
 
     $faker = Faker\Factory::create();
 

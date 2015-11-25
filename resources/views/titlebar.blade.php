@@ -30,7 +30,7 @@
                 <li><a href="{{ url('/auth/login') }}">Login</a></li>
                 <li><a href="{{ url('/auth/register') }}">Register</a></li>
                 @else
-                <li><a href="#">Notifications <span class="badge">{{$alert_count}}</span></a></li>
+                <li><a href="#">Notifications <span class="badge">{{69}}</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
