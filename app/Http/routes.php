@@ -23,6 +23,10 @@ Route::get('profile', function() {
     return view('employees.show');
 });
 
+Route::get('incident/create', function() {
+    return view('incidents.create');
+});
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
