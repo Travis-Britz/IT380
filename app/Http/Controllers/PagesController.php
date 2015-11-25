@@ -22,7 +22,7 @@ class PagesController extends Controller {
     }
 
     public function dashboard() {
-        return view('dashboard', ['username' => 'Travis Britz',
+        return view('dashboard', [
             'alert_count' => '69']);
     }
 
