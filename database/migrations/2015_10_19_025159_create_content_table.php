@@ -15,7 +15,8 @@ class CreateContentTable extends Migration {
                         $table->increments('content_id');
                         $table->unsignedInteger('cat_id');
                         $table->string('language', 2);
-                        $table->text('media_url');
+                        $table->string('title');
+                        $table->text('body');
                         $table->unsignedInteger('estimated_duration'); //seconds
                         $table->enum('media_type', ['video', 'text', 'quiz', 'image','audio']);
                         $table->timestamps();

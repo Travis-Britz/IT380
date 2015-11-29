@@ -117,15 +117,15 @@ class DatabaseSeeder extends Seeder {
         );
 
         DB::table('users')->insert([
-                'id' => 69,
-                'name' => 'travis',
-                'email' => 'travis@britz.es',
-                'password' => '$2y$10$Gq0cHJhMpMzoxA1ywb/.m.gryS1.1F4ACpipaSS8cSYE4V80GCrXG',
-                'remember_token' => str_random(10),
-                'created_at' => $faker->dateTime->format('Y-m-d H:i:s'),
-                'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
-            ]);
-        
+            'id' => 69,
+            'name' => 'travis',
+            'email' => 'travis@britz.es',
+            'password' => '$2y$10$Gq0cHJhMpMzoxA1ywb/.m.gryS1.1F4ACpipaSS8cSYE4V80GCrXG',
+            'remember_token' => str_random(10),
+            'created_at' => $faker->dateTime->format('Y-m-d H:i:s'),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+
         // Add records
         for ($i = 1; $i < $maxid; $i++) {
 
@@ -193,7 +193,7 @@ class DatabaseSeeder extends Seeder {
                 'employee_id' => $empId,
                 'phone_number' => $faker->phoneNumber,
                 'phone_type' => $faker->randomElement(['Mobile', 'Landline']),
-                'phone_category' => $faker->randomElement(['personal', 'work','business','fax']),
+                'phone_category' => $faker->randomElement(['personal', 'work', 'business', 'fax']),
             ]);
 
             DB::table('address')->insert([
@@ -220,9 +220,10 @@ class DatabaseSeeder extends Seeder {
                 'content_id' => $contentId,
                 'cat_id' => $catId,
                 'language' => $faker->languageCode,
-                'media_url' => $faker->url,
+                'title' => substr($foo = $faker->sentence(rand(3,6)), 0, strlen($foo) - 1),
+                'body' => $faker->realText,
                 'estimated_duration' => mt_rand(1, 100),
-                'media_type' => $faker->randomElement(['video','text','quiz','image','audio']),
+                'media_type' => $faker->randomElement(['video'/* ,'text','quiz','image','audio' */]),
                 'created_at' => $faker->dateTime->format('Y-m-d H:i:s'),
                     //'updated_at' => mt_rand(0, 23) . ":" . str_pad(mt_rand(0, 59), 2, "0", STR_PAD_LEFT),
             ]);
@@ -253,7 +254,7 @@ class DatabaseSeeder extends Seeder {
             DB::table('meeting_attendee')->insert([
                 'meeting_id' => $meetingId,
                 'employee_id' => $empId,
-                'attended' => rand(0,1),
+                'attended' => rand(0, 1),
             ]);
 
             DB::table('objective')->insert([
@@ -264,7 +265,7 @@ class DatabaseSeeder extends Seeder {
             DB::table('meeting_objective')->insert([
                 'objective_id' => $objectiveId,
                 'meeting_id' => $meetingId,
-                //'completed_at' => mt_rand(0, 23) . ":" . str_pad(mt_rand(0, 59), 2, "0", STR_PAD_LEFT),
+                    //'completed_at' => mt_rand(0, 23) . ":" . str_pad(mt_rand(0, 59), 2, "0", STR_PAD_LEFT),
             ]);
 
             DB::table('meeting_cat')->insert([
@@ -280,7 +281,7 @@ class DatabaseSeeder extends Seeder {
             DB::table('meeting_content')->insert([
                 'meeting_id' => $meetingId,
                 'content_id' => $contentId,
-               //'completed_at' => mt_rand(0, 23) . ":" . str_pad(mt_rand(0, 59), 2, "0", STR_PAD_LEFT),
+                    //'completed_at' => mt_rand(0, 23) . ":" . str_pad(mt_rand(0, 59), 2, "0", STR_PAD_LEFT),
             ]);
 
             DB::table('report_cat')->insert([

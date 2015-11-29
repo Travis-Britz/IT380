@@ -24,7 +24,8 @@
         <script type="text/javascript" src="{{ URL::asset('js/moment.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
 
-
+        <!-- Multi select -->
+        <script type="text/javascript" src="{{ URL::asset('js/selectr.js') }}"></script>
 
         <title>@yield('title')</title>
     </head>
