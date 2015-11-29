@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Employee extends Model {
 
     /**
@@ -18,14 +19,14 @@ class Employee extends Model {
      *
      * @var array
      */
-    protected $fillable = ['ssn', 'firstname', 'lastname', 'employee_id'];
+    protected $fillable = ['ssn', 'firstname', 'lastname', 'supervisor_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['ssn', 'user_id'];
+    protected $hidden = ['ssn'];
 
     
     /**
@@ -46,6 +47,6 @@ class Employee extends Model {
      */
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User', 'employee_id', 'id');
     }
 }
