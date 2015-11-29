@@ -23,9 +23,19 @@ Route::get('profile', function() {
     return view('employees.show');
 });
 
+
+// Incident Routes
 Route::get('incident/create', function() {
     return view('incidents.create');
 });
+
+
+// Meeting routes
+Route::get('meeting/create', 'MeetingsController@create');
+Route::get('meeting/{id}', 'MeetingsController@show');
+
+
+
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
