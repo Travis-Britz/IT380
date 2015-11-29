@@ -7,7 +7,7 @@ $pass = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
 $hmac = hash_hmac('sha1', file_get_contents('php://input'), UPDATE_PASSWORD);
 
 if (($headers['X-Hub-Signature'] == 'sha1=' . $hmac) || ($pass === UPDATE_PASSWORD)) {
-        die("<pre>" . shell_exec('cd /var/www/it380.vps.britz.es/ 2>&1 && git reset --hard origin/master 2>&1 && git pull 2>&1') . "</pre>");
+        die("<pre>" . shell_exec('cd /var/www/it380.vps.britz.es/ 2>&1 && git reset --hard origin/master 2>&1 && git pull 2>&1 && php artisan migrate:refresh --seed 2>&1') . "</pre>");
 }
 else if (($pass) && ($pass != UPDATE_PASSWORD)) {
         die('Invalid password.');
