@@ -10,14 +10,24 @@
 <div class="container">
     <h1>Schedule a Meeting</h1>
     {!! Form::open() !!}
-    <div class="row">
+<!--    <div class="row">
         <div class="col-xs-12 col-sm-8">
             <div class='form-group'>
                 {!! Form::label('subject', 'Subject:') !!}
                 {!! Form::text('subject', null, ['class' => 'form-control', 'placeholder' => 'Meeting Topic']) !!}
             </div>
         </div>
-        <div class='col-xs-12 col-sm-4'>
+        
+
+    </div>-->
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                {!! Form::label('where', 'Where:') !!}
+                {!! Form::text('where', null, ['class' => 'form-control', 'placeholder' => 'Location']) !!}
+            </div>
+            <div class='col-xs-12 col-sm-4'>
             <div class="form-group">
                 {!! Form::label('start', 'When:') !!}
 
@@ -35,15 +45,6 @@
                 $('#datetimepicker1').datetimepicker();
             });
         </script>
-
-    </div>
-    <div class="form-group">
-
-        <div class="row">
-            <div class="col-xs-12">
-                {!! Form::label('where', 'Where:') !!}
-                {!! Form::text('where', null, ['class' => 'form-control', 'placeholder' => 'Location']) !!}
-            </div>
         </div>
     </div>
     <div class="form-group">
@@ -58,7 +59,7 @@
                 </select>
             </div>
             <div class="col-xs-12 col-sm-6">
-                <select name="content" data-selectr-opts='{ "title": "Topics", "placeholder": "Search Topics" }'  multiple>
+                <select name="content" data-selectr-opts='{ "title": "Topics", "placeholder": "Search Topics" }'>
                     
                     @foreach(DB::table('content')->select('content_id as id', 'title')->get() as $content)
                     <option value="{{ $content->id }}">{{ $content->title }}</option>
