@@ -221,7 +221,7 @@ class DatabaseSeeder extends Seeder {
                 'cat_id' => $catId,
                 'language' => $faker->languageCode,
                 'title' => substr($foo = $faker->sentence(rand(3, 6)), 0, strlen($foo) - 1),
-                'body' => $faker->realText,
+                'body' => $faker->realText(1000),
                 'estimated_duration' => mt_rand(1, 100),
                 'media_type' => $faker->randomElement(['video'/* ,'text','quiz','image','audio' */]),
                 'created_at' => $faker->dateTime->format('Y-m-d H:i:s'),

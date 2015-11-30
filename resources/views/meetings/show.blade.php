@@ -23,9 +23,23 @@
     <div class="row">
         <div class="col-xs-12">
             <h4>
-                {!! $meeting->topics()->first()->body !!}
+                #{{ $meeting->topics()->first()->title }}
             </h4>
-<iframe src="https://www.youtube.com/embed/weqPwlhU7WU" frameborder="0" allowfullscreen></iframe>        </div>
+            <iframe src="https://www.youtube.com/embed/weqPwlhU7WU" frameborder="0" allowfullscreen></iframe>
+
+            <h4>
+                #{{ $meeting->topics()->first()->title }}
+            </h4>
+            <p>
+                {{ $meeting->topics()->first()->body }}
+            </p>
+            <h4>
+                #{{ $meeting->topics()->first()->title }}
+            </h4>
+            <p>
+                {{ $meeting->topics()->first()->body }}
+            </p>
+        </div>
     </div>
 </div>
 
