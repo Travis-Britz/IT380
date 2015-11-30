@@ -44,13 +44,13 @@ class Report extends Model
      * Get the user record associated with the employee.
      */
     public function employees() {
-        return $this->belongsTo('App\User', 'employee_id', 'id');
+        return $this->hasMany('App\Employee', 'employee_id', 'id');
     }
 
     /**
      * returns the author of the report
      */
     public function author() {
-        return $this->belongsTo('App\User','author', 'user_id');
+        return $this->belongsTo('App\Employee','author', 'user_id');
     }
 }
