@@ -299,6 +299,7 @@ class DatabaseSeeder extends Seeder {
             DB::table('report')->insert([
                 'report_id' => $reportId,
                 'incident_id' => $incidentId,
+                'employee_id' => $empId,
                 'author' => $empId,
                 'text' => $faker->paragraph,
                 'created_at' => $faker->dateTime->format('Y-m-d H:i:s'),
