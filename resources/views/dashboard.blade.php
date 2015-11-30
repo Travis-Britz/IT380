@@ -4,11 +4,6 @@
 
 @section('content')
 
-<style>
-
-
-</style>
-
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -82,7 +77,7 @@
                     @foreach($previous_meetings as $meeting)
                     <a href="{{ url('meetings',[$meeting->meeting_id]) }}" class="list-group-item"> 
                         {{ $meeting->topics()->first()->title }} <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-                        <span class="pull-right">{{ date_diff(date_create(date('Y-m-d')), date_create($meeting->start))->format('%r%ad %hh') }}</span>
+                        <span class="pull-right">-{{ date_diff(date_create(date('Y-m-d')), date_create($meeting->start))->format('%ad %hh') }}</span>
                     </a>
                     @endforeach
                 </div>
