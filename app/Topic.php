@@ -29,7 +29,7 @@ class Topic extends Model
     protected $primaryKey = 'content_id';
     
     public function meetings() {
-        return $this->belongsToMany('App\Meeting', 'meeting_content', 'meeting_id', 'content_id');
+        return $this->belongsToMany('App\Meeting', 'meeting_content', 'content_id', 'meeting_id');
     }
     
     }

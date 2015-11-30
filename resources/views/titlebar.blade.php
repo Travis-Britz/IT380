@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
+            <a class="navbar-brand" href="{{ url('/') }}"><span class="glyphicon glyphicon-home"></span></a>
 
 
 

@@ -6,26 +6,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Meeting;
-
-class MeetingsController extends Controller {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct() {
-        $this->middleware('auth');
-    }
-
+class TopicsController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        return Meeting::all();
+    public function index()
+    {
+        //
     }
 
     /**
@@ -33,8 +23,9 @@ class MeetingsController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
-        return view('meetings.create');
+    public function create()
+    {
+        //
     }
 
     /**
@@ -43,7 +34,8 @@ class MeetingsController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         //
     }
 
@@ -53,9 +45,9 @@ class MeetingsController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
-        $meeting = Meeting::findOrFail($id);
-        return view('meetings.show', compact('meeting'));
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -64,7 +56,8 @@ class MeetingsController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         //
     }
 
@@ -75,7 +68,8 @@ class MeetingsController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         //
     }
 
@@ -85,8 +79,8 @@ class MeetingsController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         //
     }
-
 }
