@@ -51,6 +51,6 @@ class Report extends Model
      * returns the author of the report
      */
     public function author() {
-        return $this->belongsTo('App\Employee','author', 'user_id');
+        return $this->belongsTo('App\Employee','author', 'employee_id');
     }
 }
