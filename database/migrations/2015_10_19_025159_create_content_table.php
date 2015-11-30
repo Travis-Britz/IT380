@@ -17,6 +17,7 @@ class CreateContentTable extends Migration {
                         $table->string('language', 2);
                         $table->string('title');
                         $table->text('body');
+                        $table->text('url');
                         $table->unsignedInteger('estimated_duration'); //seconds
                         $table->enum('media_type', ['video', 'text', 'quiz', 'image','audio']);
                         $table->timestamps();

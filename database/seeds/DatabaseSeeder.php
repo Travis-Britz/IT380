@@ -221,9 +221,10 @@ class DatabaseSeeder extends Seeder {
                 'cat_id' => $catId,
                 'language' => $faker->languageCode,
                 'title' => substr($foo = $faker->sentence(rand(3, 6)), 0, strlen($foo) - 1),
-                'body' => $faker->realText(1000),
+                'body' => "<h3>#".substr($foo = $faker->sentence(rand(3, 6)), 0, strlen($foo) - 1)."</h3>"."<p>".$faker->realText(1000)."</p>"."<h3>#".substr($foo = $faker->sentence(rand(3, 6)), 0, strlen($foo) - 1)."</h3>"."<p>".$faker->realText(1000)."</p>"."<h3>#".substr($foo = $faker->sentence(rand(3, 6)), 0, strlen($foo) - 1)."</h3>"."<p>".$faker->realText(1000)."</p>",
                 'estimated_duration' => mt_rand(1, 100),
-                'media_type' => $faker->randomElement(['video'/* ,'text','quiz','image','audio' */]),
+                'media_type' => $foo = $faker->randomElement(['video',/*'image',*//*'text','image','quiz','audio' */]),
+                'url'=> ($foo == 'false') ? $faker->imageUrl : $faker->randomElement(['https://youtube.com/embed/weqPwlhU7WU','https://www.youtube.com/embed/dBf6BTX1bmM','https://www.youtube.com/embed/AjPau5QYtYs','https://www.youtube.com/embed/18Kmo-1U1fc']),
                 'created_at' => $faker->dateTime->format('Y-m-d H:i:s'),
                     //'updated_at' => mt_rand(0, 23) . ":" . str_pad(mt_rand(0, 59), 2, "0", STR_PAD_LEFT),
             ]);
@@ -243,9 +244,9 @@ class DatabaseSeeder extends Seeder {
 
             DB::table('meeting')->insert([
                 'meeting_id' => $meetingId,
-                'start' => ($foo = rand(0, 1)) ? $faker->dateTime->format('Y-m-d H:i:s') : date('Y-m-d H:i:s', strtotime('+' . rand(1, 30) . ' days')),
-                'end' => ($foo) ? $faker->dateTime->format('Y-m-d H:i:s') : null,
-                'duration_estimate' => mt_rand(1, 100),
+                'start' => $faker->dateTimeBetween('-60 days','+60 days')->format('Y-m-d H:i:s'),
+                'end' => null,
+                'duration_estimate' => mt_rand(5, 15),
                 //'location_id' => $locationId,
                 'location' => $faker->address,
                 'created_at' => $faker->dateTime->format('Y-m-d H:i:s'),

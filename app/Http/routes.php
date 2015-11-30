@@ -56,9 +56,11 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/faker', function() {
 
-    return DB::table('employee')->select('employee_id as id', 'firstname', 'lastname')->get();
+   
+    //return DB::table('employee')->select('employee_id as id', 'firstname', 'lastname')->get();
 
     $faker = Faker\Factory::create();
 
-    echo $faker->dateTime->format('Y-m-d H:i:s');
+    return $faker->imageUrl;
+    return $faker->dateTime->format('Y-m-d H:i:s');
 });

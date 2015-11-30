@@ -28,7 +28,7 @@ class PagesController extends Controller {
 
 
         $upcoming_meetings = Meeting::where('start', '>', Carbon::now())->orderBy('start')->take(4)->get();
-        $previous_meetings = Meeting::where('start','<', Carbon::now())->orderBy('start')->take(5)->get();
+        $previous_meetings = Meeting::where('start','<', Carbon::now())->orderBy('start','desc')->take(5)->get();
         //$meetings = Meeting::find(704)->topics;
         // return $meeting = Meeting::find(704)->topics()->first();
 

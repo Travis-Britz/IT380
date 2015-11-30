@@ -47,9 +47,8 @@
                     <!--                    A few dummy list items for now-->
                     <a href="{{ url('meetings', [701]) }}" class="list-group-item">
                         Toxic Materials Training <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-                        <span class="pull-right">3d 13h</span>
+                        <span class="pull-right">1d 13h</span>
                     </a>
-
 
                     @foreach($upcoming_meetings as $meeting)
                     <a href="{{ url('meetings',[$meeting->meeting_id]) }}" class="list-group-item"> 
@@ -57,15 +56,10 @@
                         <span class="pull-right">{{ date_diff(date_create(date('Y-m-d')), date_create($meeting->start))->format('%r%ad %hh') }}</span>
                     </a>
                     @endforeach
-                    
+
                     <a href="{{ url('meetings/create') }}" class="list-group-item list-group-item-info">
                         Schedule New Meeting <span class="glyphicon glyphicon-plus pull-right"></span>
                     </a>
-
-
-
-
-
                 </div>
             </div>
         </div>
@@ -81,9 +75,15 @@
                 <!-- List group -->
                 <div class="list-group">
 
-                    <a href="{{ url('meetings', [701]) }}" class="list-group-item">Heavy Lifting Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">-5d 12h</span></a>
+                    <a href="{{ url('meetings', [701]) }}" class="list-group-item">
+                        Heavy Lifting Training <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+                        <span class="pull-right">-0d 18h</span>
+                    </a>
                     @foreach($previous_meetings as $meeting)
-                    <a href="{{ url('meetings',[$meeting->meeting_id]) }}" class="list-group-item"> {{ $meeting->topics()->first()->title }} <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">{{ date_diff(date_create(date('Y-m-d')), date_create($meeting->start))->format('%r%ad %hh') }}</span></a>
+                    <a href="{{ url('meetings',[$meeting->meeting_id]) }}" class="list-group-item"> 
+                        {{ $meeting->topics()->first()->title }} <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+                        <span class="pull-right">{{ date_diff(date_create(date('Y-m-d')), date_create($meeting->start))->format('%r%ad %hh') }}</span>
+                    </a>
                     @endforeach
                 </div>
             </div>
