@@ -220,7 +220,7 @@ class DatabaseSeeder extends Seeder {
                 'content_id' => $contentId,
                 'cat_id' => $catId,
                 'language' => $faker->languageCode,
-                'title' => substr($foo = $faker->sentence(rand(3,6)), 0, strlen($foo) - 1),
+                'title' => substr($foo = $faker->sentence(rand(3, 6)), 0, strlen($foo) - 1),
                 'body' => $faker->realText,
                 'estimated_duration' => mt_rand(1, 100),
                 'media_type' => $faker->randomElement(['video'/* ,'text','quiz','image','audio' */]),
@@ -236,19 +236,20 @@ class DatabaseSeeder extends Seeder {
             ]);
 
             DB::table('location')->insert([
-                'location_id' => $locationId,
+                //'location_id' => $locationId,
                 'text' => $faker->sentence,
                 'address_id' => $addressId,
             ]);
 
             DB::table('meeting')->insert([
                 'meeting_id' => $meetingId,
-                'start' => mt_rand(0, 23) . ":" . str_pad(mt_rand(0, 59), 2, "0", STR_PAD_LEFT),
-                'end' => mt_rand(0, 23) . ":" . str_pad(mt_rand(0, 59), 2, "0", STR_PAD_LEFT),
+                'start' => $faker->dateTime->format('Y-m-d H:i:s'),
+                'end' => $faker->dateTime->format('Y-m-d H:i:s'),
                 'duration_estimate' => mt_rand(1, 100),
-                'location_id' => $locationId,
+                //'location_id' => $locationId,
+                'location' => $faker->address,
                 'created_at' => $faker->dateTime->format('Y-m-d H:i:s'),
-                    //'updated_at' => mt_rand(0, 23) . ":" . str_pad(mt_rand(0, 59), 2, "0", STR_PAD_LEFT),
+                'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
             ]);
 
             DB::table('meeting_attendee')->insert([

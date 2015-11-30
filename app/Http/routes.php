@@ -31,8 +31,9 @@ Route::get('incident/create', function() {
 
 
 // Meeting routes
-Route::get('meeting/create', 'MeetingsController@create');
-Route::get('meeting/{id}', 'MeetingsController@show');
+Route::get('meetings','MeetingsController@index');
+Route::get('meetings/create', 'MeetingsController@create');
+Route::get('meetings/{id}', 'MeetingsController@show');
 
 
 

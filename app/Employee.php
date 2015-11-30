@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Employee extends Model {
 
     /**
@@ -28,25 +27,27 @@ class Employee extends Model {
      */
     protected $hidden = ['ssn'];
 
-    
     /**
      * The name of the primary key
      * 
      * @var string
      */
     protected $primaryKey = 'employee_id';
-    
+
     /**
      * Laravel assumes created_at and updated_at columns by default
      */
-    
     protected $timestamps = false;
-    
+
     /**
      * Get the user record associated with the employee.
      */
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo('App\User', 'employee_id', 'id');
     }
+
+    public function meetings() {
+        return $this->belongsToMany('App\Meeting', 'meeting_attendee', 'meeting_id', 'employee_id');
+    }
+
 }

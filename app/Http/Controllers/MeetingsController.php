@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Meeting;
+
 class MeetingsController extends Controller {
 
     /**
@@ -23,7 +25,7 @@ class MeetingsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        return Meeting::all();
     }
 
     /**

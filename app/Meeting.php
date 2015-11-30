@@ -11,7 +11,7 @@ class Meeting extends Model {
      *
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'meeting';
 
     /**
      * The attributes that are mass assignable.
@@ -20,8 +20,22 @@ class Meeting extends Model {
      */
     protected $fillable = ['start', 'end', 'duration_estimate', 'location'];
 
+    /**
+     * The name of the primary key
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'meeting_id';
+
+    /**
+     * Get the user record associated with the employee.
+     */
     public function attendees() {
-        return $this->belongsToMany('App\Employee', 'meeting_attendee', 'employee_id', 'user_id');
+        return $this->belongsToMany('App\User', 'meeting_attendee', 'employee_id', 'meeting_id');
+    }
+    
+    public function topics() {
+        return $this->belongsToMany('App\Topic', 'meeting_content', 'content_id', 'meeting_id');
     }
 
 }
