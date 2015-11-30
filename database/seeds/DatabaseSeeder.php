@@ -243,8 +243,8 @@ class DatabaseSeeder extends Seeder {
 
             DB::table('meeting')->insert([
                 'meeting_id' => $meetingId,
-                'start' => $faker->dateTime->format('Y-m-d H:i:s'),
-                'end' => $faker->dateTime->format('Y-m-d H:i:s'),
+                'start' => ($foo = rand(0, 1)) ? $faker->dateTime->format('Y-m-d H:i:s') : date('Y-m-d H:i:s', strtotime('+' . rand(1, 30) . ' days')),
+                'end' => ($foo) ? $faker->dateTime->format('Y-m-d H:i:s') : null,
                 'duration_estimate' => mt_rand(1, 100),
                 //'location_id' => $locationId,
                 'location' => $faker->address,
