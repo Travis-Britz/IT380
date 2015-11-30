@@ -35,7 +35,7 @@ class Meeting extends Model {
     }
     
     public function topics() {
-        return $this->belongsToMany('App\Topic', 'meeting_content', 'content_id', 'meeting_id');
+        return $this->belongsToMany('App\Topic', 'meeting_content', 'meeting_id', 'content_id');
     }
 
 }

@@ -5,22 +5,25 @@
 @section('content')
 
 <style>
-    .list-group-item:hover,.panel-body:hover{
-        background-color:lightgrey;
-    }
+
+
 </style>
 
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><span class="glyphicon glyphicon-bullhorn pull-right"></span> Today's Meeting</h3>
 
                 </div>
-                <div class="panel-body">
-                    Ladder Safety Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">9:15AM</span>
+                <div class="list-group">
+
+                    <!--                    A few dummy list items for now-->
+                    <a href="{{ url('meetings', [701]) }}" class="list-group-item">
+                        Ladder Safety Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">9:15AM</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -37,13 +40,17 @@
 
 
                 <!-- List group -->
-                <ul class="list-group">
-                    <li class="list-group-item">Toxic Materials Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">3d 13h</span></li>
-                    <li class="list-group-item">Heavy Lifting Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">5d 12h</span></li>
-                    <li class="list-group-item">Lorem ipsum dolor sit <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">1w 2d</span></li>
-                    <li class="list-group-item">Sed tristique ante in nulla laoreet <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">1w 4d</span></li>
-                    <li class="list-group-item">Vestibulum at eros <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">2w 0h</span></li>
-                </ul>
+                <div class="list-group">
+
+                    <!--                    A few dummy list items for now-->
+                    <a href="{{ url('meetings', [701]) }}" class="list-group-item">Toxic Materials Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">3d 13h</span></a>
+
+
+                    @foreach($upcoming_meetings as $meeting)
+                    <a href="{{ url('meetings') }}" class="list-group-item"> {{ $meeting->topics()->first()->title }} <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">{{ date_diff(date_create(date('Y-m-d')), date_create($meeting->start))->format('%r%ad %hh') }}</span></a>
+                    @endforeach
+
+                </div>
             </div>
         </div>
 
@@ -56,13 +63,13 @@
 
 
                 <!-- List group -->
-                <ul class="list-group">
-                    <li class="list-group-item">Toxic Materials Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">3d 13h</span></li>
-                    <li class="list-group-item">Heavy Lifting Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">5d 12h</span></li>
-                    <li class="list-group-item">Lorem ipsum dolor sit <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">1w 2d</span></li>
-                    <li class="list-group-item">Sed tristique ante in nulla laoreet <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">1w 4d</span></li>
-                    <li class="list-group-item">Vestibulum at eros <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">2w 0h</span></li>
-                </ul>
+                <div class="list-group">
+
+                    <a href="{{ url('meetings', [701]) }}" class="list-group-item">Heavy Lifting Training <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">-5d 12h</span></a>
+                    @foreach($previous_meetings as $meeting)
+                    <a href="{{ url('meetings') }}" class="list-group-item"> {{ $meeting->topics()->first()->title }} <span class="glyphicon glyphicon-chevron-right pull-right"></span><span class="pull-right">{{ date_diff(date_create(date('Y-m-d')), date_create($meeting->start))->format('%r%ad %hh') }}</span></a>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
