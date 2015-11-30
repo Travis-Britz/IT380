@@ -4,12 +4,6 @@
 
 @section('content')
 
-
-
-
-
-
-
 <div class="container">
     
 	<h1>Incident Report</h1>
@@ -18,7 +12,7 @@
 	<div class="container">
 		<div class="form-group">
 			<div class="row">
-				<div class="col-xs-12 col-sm-6">
+				<div class="col-xs-20 col-sm-6">
 					<select name="employees" data-selectr-opts='{ "title": "Employees", "placeholder": "Search Employees" }'  multiple>
 						
 						@foreach(DB::table('employee')->select('employee_id as id', 'firstname', 'lastname')->get() as $emp)
