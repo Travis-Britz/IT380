@@ -47,6 +47,9 @@ class Report extends Model
         return $this->belongsTo('App\User', 'employee_id', 'id');
     }
 
+    /**
+     * returns the author of the report
+     */
     public function author() {
         return $this->belongsTo('App\User','author', 'user_id');
     }
