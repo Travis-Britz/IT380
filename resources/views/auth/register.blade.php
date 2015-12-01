@@ -44,14 +44,14 @@
                             <div class="row">
                                 <div class="col-xs-6 col-sm-8 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" name="name" id="first_name" class="form-control input-sm" placeholder="Username">
+                                        <input type="text" name="name" id="first_name" class="form-control input-sm" placeholder="Username" value="{{ old('name') }}">
                                     </div>
                                 </div>
                             </div>                            <div class="row">
 
                                 <div class="col-xs-6 col-sm-8 col-md-12">
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+                                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" value="{{ old('email') }}">
                                     </div>
                                 </div>
                             </div>
