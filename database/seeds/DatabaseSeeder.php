@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder {
 
         DB::table('users')->insert([
             'id' => 69,
-            'name' => 'travis',
+            'name' => 'Travis Britz',
             'email' => 'travis@britz.es',
             'password' => '$2y$10$Gq0cHJhMpMzoxA1ywb/.m.gryS1.1F4ACpipaSS8cSYE4V80GCrXG',
             'remember_token' => str_random(10),
