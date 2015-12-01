@@ -5,8 +5,8 @@
 @section('content')
 
 <div class="container">
-
     <h1>Create an Incident Report</h1>
+    {!! Form::open() !!}
     <div class="row">
         <div class="col-xs-4">
             <div class="form-group">
