@@ -5,33 +5,49 @@
 @section('content')
 
 <div class="container">
-    
+
     <h1>Create an Incident Report</h1>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                    <h3>Employees Involved</h3>
-                    <select name="employees" size="7" data-selectr-opts='{ "title": "Employees", "placeholder": "Search Employees" }'  multiple>
-                            @foreach(DB::table('employee')->select('employee_id as id', 'firstname', 'lastname')->get() as $emp)
-                            <option value="{{ $emp->id }}">{{ $emp->firstname }} {{ $emp->lastname }}</option>
-                            @endforeach
-                    </select>
-                </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group">
+                {!! Form::label('employees', 'Employees Involved:') !!}
+                <select class="form-control" name="employees" size="10" multiple>
+                    @foreach(DB::table('employee')->select('employee_id as id', 'firstname', 'lastname')->orderBy('lastname')->get() as $emp)
+                    <option value="{{ $emp->id }}">{{ $emp->firstname }} {{ $emp->lastname }}</option>
+                    @endforeach
+                </select>
+                <span class="text-muted">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                    Hold ctrl or shift (or drag with the mouse) to select more than one
+                </span>
             </div>
         </div>
+    </div>
 
-        <div class="form-group">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                    <h3>Incident Summary</h3>
-                    <textarea rows="10" cols="51" spellcheck="false"></textarea>
-                    <form action="choose_image.asp">
-                        Add Image: <input type="file" name="img">
-                    </form>
-                    <input type="submit" value="Submit">
-                </div>
-            </div
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="summary">Incident Summary:</label>
+                <textarea class="form-control" rows="5" name="summary"></textarea>
+            </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group">
+                {!! Form::label('img','Upload Image:') !!}
+                {!! Form::file('img') !!}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="form-group">
+                {!! Form::submit('Submit',['class' => 'btn btn-primary form-control']) !!}
+            </div>
+        </div>
+    </div>
+
 </div>
 
 @stop
