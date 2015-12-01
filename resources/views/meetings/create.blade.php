@@ -32,7 +32,7 @@
                 {!! Form::label('start', 'When:') !!}
 
                 <div class='input-group date' id='datetimepicker1'>
-                    {!! Form::text('when', date('m/d/Y 9:15', strtotime('next monday')), ['class' => 'form-control', 'placeholder' => 'Start Time']) !!}
+                    {!! Form::text('start', date('m/d/Y 9:15', strtotime('next monday')), ['class' => 'form-control', 'placeholder' => 'Start Time']) !!}
 <!--                        <input type='text' class="form-control" />-->
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
