@@ -31,9 +31,9 @@ class Meeting extends Model {
      * Get the user record associated with the employee.
      */
     public function attendees() {
-        return $this->belongsToMany('App\User', 'meeting_attendee', 'employee_id', 'meeting_id');
+        return $this->belongsToMany('App\User', 'meeting_attendee', 'meeting_id', 'employee_id');
     }
-    
+
     public function topics() {
         return $this->belongsToMany('App\Topic', 'meeting_content', 'meeting_id', 'content_id');
     }
