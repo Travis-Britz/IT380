@@ -8,8 +8,8 @@
         
         
 <!-- SCM Music Player http://scmplayer.net -->
-<script type="text/javascript" src="http://scmplayer.net/script.js" 
-data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle':true,'repeat':1,'placement':'top','showplaylist':false,'playlist':[{'title':'Safety Dance','url':'https://www.youtube.com/watch?v=AjPau5QYtYs'}]}" ></script>
+<!--<script type="text/javascript" src="http://scmplayer.net/script.js" 
+data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle':true,'repeat':1,'placement':'top','showplaylist':false,'playlist':[{'title':'Safety Dance','url':'https://www.youtube.com/watch?v=AjPau5QYtYs'}]}" ></script>-->
 <!-- SCM Music Player script end -->
 
         

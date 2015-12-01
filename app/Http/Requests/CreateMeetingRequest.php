@@ -22,9 +22,9 @@ class CreateMeetingRequest extends Request {
      */
     public function rules() {
         return [
-            'location' => 'required|max:255',
+            'location' => 'required|max:255|min:5',
             'content' => 'required',
-            'start' => 'required'
+            'start' => 'required:date'
         ];
     }
 

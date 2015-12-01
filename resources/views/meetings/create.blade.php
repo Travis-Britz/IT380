@@ -36,14 +36,14 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8">
                 {!! Form::label('location', 'Where:') !!}
-                {!! Form::text('location', null, ['class' => 'form-control', 'placeholder' => 'Location']) !!}
+                {!! Form::text('location', old('location'), ['class' => 'form-control', 'placeholder' => 'Location']) !!}
             </div>
             <div class='col-xs-12 col-sm-4'>
                 <div class="form-group">
                     {!! Form::label('start', 'When:') !!}
 
                     <div class='input-group date' id='datetimepicker1'>
-                        {!! Form::text('start', date('m/d/Y 9:15', strtotime('next monday')), ['class' => 'form-control', 'placeholder' => 'Start Time']) !!}
+                        {!! Form::text('start', (old('start')) ? old('start') : date('m/d/Y 9:15', strtotime('next monday')), ['class' => 'form-control', 'placeholder' => 'Start Time']) !!}
     <!--                        <input type='text' class="form-control" />-->
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
@@ -63,17 +63,18 @@
             <div class="col-xs-12 col-sm-6">
                 <select name="attendees[]" data-selectr-opts='{ "title": "Attendees", "placeholder": "Search Employees" }'  multiple>
 
-                    @foreach(DB::table('employee')->select('employee_id as id', 'firstname', 'lastname')->get() as $emp)
-                    <option value="{{ $emp->id }}">{{ $emp->firstname }} {{ $emp->lastname }}</option>
+                    @foreach(DB::table('employee')->select('employee_id as id', 'firstname', 'lastname')->orderBy('lastname')->get() as $emp)
+                    <option value="{{ $emp->id }}" @if((old('attendees')) && (in_array($emp->id, old('attendees')))) selected @endif>{{ $emp->firstname }} {{ $emp->lastname }}</option>
                     @endforeach
 
                 </select>
             </div>
             <div class="col-xs-12 col-sm-6">
+
                 <select name="content[]" data-selectr-opts='{ "title": "Topics", "placeholder": "Search Topics" }'>
 
                     @foreach(DB::table('content')->select('content_id as id', 'title')->get() as $content)
-                    <option value="{{ $content->id }}">{{ $content->title }}</option>
+                    <option value="{{ $content->id }}" @if((old('content')) && (in_array($content->id, old('content')))) selected @endif>{{ $content->title }}</option>
                     @endforeach
 
                 </select>
