@@ -8,7 +8,7 @@
     <h1>Create an Incident Report</h1>
     {!! Form::open() !!}
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="form-group">
                 {!! Form::label('employees', 'Employees Involved:') !!}
                 <select class="form-control" name="employees" size="10" multiple>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="form-group">
                 <label for="summary">Incident Summary:</label>
                 <textarea class="form-control" rows="5" name="summary"></textarea>
@@ -41,7 +41,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="form-group">
                 {!! Form::submit('Submit',['class' => 'btn btn-primary form-control']) !!}
             </div>
