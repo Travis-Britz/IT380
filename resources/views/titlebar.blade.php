@@ -35,7 +35,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ url('incident/create') }}"><span class="glyphicon glyphicon-comment"></span> Report Incident</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Account</a></li>
+                        <li class="disabled"><a href="#"><span class="glyphicon glyphicon-cog"></span> Account</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
                     </ul>
