@@ -7,7 +7,12 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
+            @if (session('loginMessage'))
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <span class="glyphicon glyphicon-info-sign"></span> Welcome back, <strong>{{ Auth::user()->name }}</strong>!<br><br>
+            </div>
+            @endif
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><span class="glyphicon glyphicon-bullhorn pull-right"></span> Today's Meeting</h3>

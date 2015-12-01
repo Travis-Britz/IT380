@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Request;
 use App\Meeting;
+use App\Employee;
 
 class MeetingsController extends Controller {
 
@@ -25,7 +26,7 @@ class MeetingsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return Meeting::all();
+        return Meeting::orderBy('meeting_id', 'desc')->get();
     }
 
     /**
@@ -34,6 +35,8 @@ class MeetingsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
+
+
         return view('meetings.create');
     }
 
@@ -43,8 +46,21 @@ class MeetingsController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        //
+    public function store(Requests\CreateMeetingRequest $request) {
+
+        $input = Request::all();
+//        return $input;
+
+        $meeting = new Meeting;
+        $meeting->location = $input['location'];
+        $meeting->start = \Carbon\Carbon::parse($input['start']);
+        $meeting->save();
+        $meeting->topics()->attach($input['content']);
+        if (isset($input['attendees'])) {
+            $meeting->attendees()->attach($input['attendees']);
+        }
+        return redirect("meetings/{$meeting->meeting_id}")->with('success', 'Successfully added meeting.');
+//        return $meeting;
     }
 
     /**

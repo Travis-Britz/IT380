@@ -25,13 +25,14 @@ Route::get('profile', function() {
 
 
 // Incident Routes
-Route::get('incidents/create','ReportsController@create');
+Route::get('incidents/create', 'ReportsController@create');
 
 
 // Meeting routes
-Route::get('meetings','MeetingsController@index');
+Route::get('meetings', 'MeetingsController@index');
 Route::get('meetings/create', 'MeetingsController@create');
 Route::get('meetings/{id}', 'MeetingsController@show');
+Route::post('meetings', 'MeetingsController@store');
 
 
 
@@ -54,7 +55,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/faker', function() {
 
-   
+
     //return DB::table('employee')->select('employee_id as id', 'firstname', 'lastname')->get();
 
     $faker = Faker\Factory::create();

@@ -34,10 +34,6 @@ class Employee extends Model {
      */
     protected $primaryKey = 'employee_id';
 
-    /**
-     * Laravel assumes created_at and updated_at columns by default
-     */
-    protected $timestamps = false;
 
     /**
      * Get the user record associated with the employee.
