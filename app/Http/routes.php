@@ -25,9 +25,7 @@ Route::get('profile', function() {
 
 
 // Incident Routes
-Route::get('incident/create', function() {
-    return view('incidents.create');
-});
+Route::get('incidents/create','ReportsController@create');
 
 
 // Meeting routes
