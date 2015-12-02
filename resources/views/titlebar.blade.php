@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">    
 
@@ -14,7 +15,10 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="{{ url('/') }}"><span class="glyphicon glyphicon-home"></span></a>
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <!--<span class="glyphicon glyphicon-home"></span>-->
+                <img alt="Brand" src="{{ asset('images/7-min-logo-gold.png') }}">
+            </a>
 
 
 
@@ -27,10 +31,22 @@
             <ul class="nav navbar-nav navbar-right">
 
                 @if (Auth::guest())
-                <li><a href="{{ url('/auth/login') }}">Login</a></li>
-                <li><a href="{{ url('/auth/register') }}">Register</a></li>
+                <li>                   
+                    <a href="{{ url('/auth/register') }}">
+                        <span class="glyphicon glyphicon-user"></span> Sign Up
+                    </a>
+                </li>
+                <li>                    
+                    <a href="{{ url('/auth/login') }}">
+                        <span class="glyphicon glyphicon-log-in"></span> Login
+                    </a>
+                </li>
                 @else
-                <li><a href="#">Notifications <span class="badge">{{69}}</span></a></li>
+                <li>
+                    <a href="#" class="disabled">
+                        Notifications <span class="badge">{{69}}</span>
+                    </a>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">

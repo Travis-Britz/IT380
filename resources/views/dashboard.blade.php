@@ -13,9 +13,8 @@
                 <span class="glyphicon glyphicon-info-sign"></span> Welcome back, <strong>{{ Auth::user()->name }}</strong>!<br><br>
             </div>
             @endif
-            <center><img src="{{asset('images/Federated-Insurance.png')}}" alt="Federated Insurance" width="25%"></center>
-            <p></p>
-            <div class="panel panel-primary">
+            
+            <div id="todays-meeting" class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><span class="glyphicon glyphicon-bullhorn pull-right"></span> Today's Meeting</h3>
 
@@ -64,7 +63,7 @@
                     </a>
                     @endforeach
 
-                    <a href="{{ url('meetings/create') }}" class="list-group-item list-group-item-info">
+                    <a id="new-meeting" href="{{ url('meetings/create') }}" class="list-group-item list-group-item-info">
                         Schedule New Meeting <span class="glyphicon glyphicon-plus pull-right"></span>
                     </a>
                 </div>
