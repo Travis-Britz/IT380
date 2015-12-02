@@ -64,7 +64,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <form class="form-signin" method="POST" action="/auth/login">
                 {!! csrf_field() !!}
-                <img src="http://i.imgur.com/RUEVaIo.jpg" alt="Federated Insurance" width="100%">
+                <img src="{{asset('images/Federated-Insurance.png')}}" alt="Federated Insurance" width="100%">
                 <h2 class="form-signin-heading">Sign in</h2>
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email" value="{{ old('email') }}">
