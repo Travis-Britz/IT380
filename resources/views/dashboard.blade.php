@@ -13,6 +13,8 @@
                 <span class="glyphicon glyphicon-info-sign"></span> Welcome back, <strong>{{ Auth::user()->name }}</strong>!<br><br>
             </div>
             @endif
+            <center><img src="http://i.imgur.com/nVIh59t.jpg" alt="Federated Insurance" width="25%"></center>
+            <p></p>
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><span class="glyphicon glyphicon-bullhorn pull-right"></span> Today's Meeting</h3>
